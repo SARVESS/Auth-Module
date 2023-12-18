@@ -15,7 +15,7 @@ export class UserService {
     const { email } = RegisterDTO;
     const user = await this.userModel.findOne({ email });
     if (user) {
-      throw new HttpException('user already exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('user already exists', HttpStatus.CONFLICT);
     }
 
     const createdUser = new this.userModel(RegisterDTO);
@@ -33,12 +33,12 @@ export class UserService {
     const { email, password } = UserDTO;
     const user = await this.userModel.findOne({ email });
     if (!user) {
-      throw new HttpException('user doesnt exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('user doesnt exists', HttpStatus.CONFLICT);
     }
     if (await bcrypt.compare(password, user.password)) {
       return this.sanitizeUser(user);
     } else {
-      throw new HttpException('invalid credential', HttpStatus.BAD_REQUEST);
+      throw new HttpException('invalid credential', HttpStatus.CONFLICT);
     }
   }
   sanitizeUser(user: User) {
