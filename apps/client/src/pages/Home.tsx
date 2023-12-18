@@ -1,4 +1,4 @@
-import { Grid, Link as MuiLink, Typography } from "@mui/material";
+import { Grid, Link as MuiLink, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Typography variant="h4">Welcome to the Application</Typography>
+      <Typography variant="h4">Welcome to the application.</Typography>
       {homeName && <Typography variant="h5">Name: {homeName}</Typography>}
       {homeEmail && <Typography variant="h5">Email: {homeEmail}</Typography>}
       {homeName && !homeEmail && (
@@ -56,7 +56,13 @@ const Home = () => {
         </Grid>
       )}
       {homeName && homeEmail ? (
-        <button onClick={handleOnclick}> Log out </button>
+        <Button
+          variant="outlined"
+          onClick={handleOnclick}
+          sx={{ marginTop: 2 }}
+        >
+          Log out
+        </Button>
       ) : null}
     </div>
   );

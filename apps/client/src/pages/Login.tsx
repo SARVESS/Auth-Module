@@ -59,13 +59,10 @@ const Login = () => {
 
     try {
       // Make API call to login endpoint using Axios
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post("/api/auth/login", {
+        email,
+        password,
+      });
 
       if (response.status === 201) {
         setSuccessMessage(

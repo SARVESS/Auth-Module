@@ -60,14 +60,11 @@ const Register = () => {
 
     try {
       // Make API call to register endpoint using Axios
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const response = await axios.post("/api/auth/register", {
+        name,
+        email,
+        password,
+      });
 
       if (response.status === 201) {
         setSuccessMessage(
