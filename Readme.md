@@ -11,14 +11,14 @@ Auth-Module built using ReactJs + NestJs + MongoDB
 
 1. Clone this Project
 2. Go to cloned project directory of it with cd and open terminal.
-3. To install required dependencies run commands:
+3. To install required dependencies run command:
    ```
    npm install
    ```
 
-### Starting Server
+### Starting App and Server
 
-Start the server using command:
+Start the app and server using command:
 
 ```
 npm run dev
@@ -42,3 +42,9 @@ localhost:3000/api
 1. `/auth/register` - POST request to create and register user in the application
 
 2. `/auth/login` - POST request to login the user.
+
+### Notes
+
+1. Used workspaces to manage the dependency installation and to run both client and server at the same time.
+
+2. Forgot password feature not implemented but can be added in future.
